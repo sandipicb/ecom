@@ -1,3 +1,3 @@
 # ecom
-This is a ecommerce site 
+This is a ecommerce site. 
 author-Sandip Chakroborty
