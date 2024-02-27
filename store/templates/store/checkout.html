@@ -6,6 +6,7 @@
     <div class="col-lg-6">
         <div class="box-element" id="form-wrapper">
             <form id="form">
+                {% csrf_token %}
                 <div id="user-info">
                     <div class="form-field">
                         <input required class="form-control" type="text" name="name" placeholder="Name..">
@@ -63,7 +64,7 @@
             </div>
             {% endfor %}
             <h5>Items : {{order.get_cart_items}}</h5>
-            <h5>Total: Tk {{order.get_cart_total|floatformat:2}}</h5>
+            <h5>Total: Tk {{order.get_cart_total}}</h5>
 
         </div>
 
@@ -88,6 +89,9 @@
         document.getElementById('payment-info').classList.remove("hidden");
     }
     var form = document.getElementById('form')
+
+    csrftoken = form.getElementsByTagName("input")[0].value
+    console.log('Newtoken:',from.getElementsByTagName('input')[0].value)
 
     form.addEventListener('submit', function(e){
         e.preventDefault()
