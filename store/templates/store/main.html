@@ -31,6 +31,21 @@
         return cookieValue;
     }
     var csrftoken = getToken('csrftoken');
+
+    function getCookie(name){
+        //split cookie string and get all individual name=value pairs in an array
+        var cookieArr = document.cookie.split(";");
+        
+        //Loop through the array elements
+        for(var i=0; i<cookieArr.length; i++){
+            var cookiePair = cookieArr[i].split("=");
+            
+
+
+        }
+
+    }
+
     </script>
 </head>
 
