@@ -14,6 +14,8 @@ def store(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else: 
+        cart = json.loads(request.COOKIES['cart'])
+        print('Cart:', cart)
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0,'shipping':False}
         cartItems = order['get_cart_items']
@@ -80,9 +82,9 @@ def updateItem(request):
 
     return JsonResponse('Item was added', safe=False)
 
-from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
+# @csrf_exempt
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
